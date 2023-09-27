@@ -1,10 +1,10 @@
-import HomeLayout from "../layout/HomeLayout"
-
+import IntroSlider from "../components/UI/slider/IntroSlider"
+import MainLayout from "../layout/MainLayout"
 const Home = () => {
     return (
-        <HomeLayout>
-            <h1>Hello</h1>
-        </HomeLayout>
+        <MainLayout>
+            <IntroSlider />
+        </MainLayout>
     )
 }
 
