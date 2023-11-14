@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import logo from '../../../assets/logo.png'
+import logo from '../../assets/logo.png'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import './navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface NavigationItem {
     name: string;
@@ -12,11 +12,11 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-    { name: 'HOME', href: '/', current: false },
-    { name: 'BLOOD REQUEST', href: '/Blood_Request', current: false },
-    { name: 'BE VOLUNTEER', href: '/Be_Volunteer', current: false },
-    { name: 'MESSANGER', href: '/inbox', current: false },
-    { name: 'ABOUT', href: '/about', current: false },
+    { name: 'home', href: '/', current: false },
+    { name: 'blood-request', href: '/blood_request', current: false },
+    { name: 'be volunteer', href: '/be_volunteer', current: false },
+    { name: 'messanger', href: '/inbox', current: false },
+    { name: 'login', href: '/login', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -25,6 +25,9 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
     const [isSticky, setIsSticky] = useState(false);
+    const location = useLocation()
+    location.pathname
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -42,10 +45,10 @@ export default function Navbar() {
         };
     }, []);
     return (
-        <Disclosure as="nav" className={`bg-white ${isSticky ? 'sticky' : ''}`}>
+        <Disclosure as="nav" className={`navbar-section border-2 bg-white ${isSticky ? 'sticky' : ''}`}>
             {({ open }) => (
                 <>
-                    <div className="container mx-auto xl:w-3/4 px-2 sm:px-6 lg:px-8">
+                    <div className="container mx-auto xl:w-3/4 px-2 sm:px-6 lg:px-8 md:py-5 lg:py-0">
                         <div className="relative flex h-[80px] md:h-[100px] lg:h-[80px] items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#FE3C47] transition-all hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -63,9 +66,9 @@ export default function Navbar() {
                                     <a href="/">
                                         <img
 
-                                            className="h-8 w-auto"
+                                            className="w-[200px]"
                                             src={logo}
-                                            alt="Your Company"
+                                            alt="logo"
                                         />
                                     </a>
                                 </div>
@@ -76,8 +79,8 @@ export default function Navbar() {
                                                 key={item.name}
                                                 to={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-800 hover:text-[#FE3C47]',
-                                                    'rounded-md px-3 py-2 text-sm font-[700] text-[14px]'
+                                                    item.href === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
+                                                    'rounded-md px-3 py-2 text-[16px] font-[600] font-fontPopins uppercase'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
@@ -95,11 +98,10 @@ export default function Navbar() {
                             {navigation.map((item) => (
                                 <Link
                                     key={item.name}
-
                                     to={item.href}
                                     className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-900 hover:text-[#FE3C47]',
-                                        'block rounded-md px-3 py-2 text-base font-medium'
+                                        item.href === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-gray-900 hover:text-[#FE3C47]',
+                                        'block rounded-md px-3 py-2 text-base font-medium uppercase'
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >

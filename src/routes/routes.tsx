@@ -1,9 +1,15 @@
-import Auth from '../pages/AuthForm';
+import Auth from '../pages/AuthPage';
+import BloodRequest from '../pages/BloodRequest';
 import Home from './../pages/Home';
+import AuthPage from './../pages/AuthPage'
 import {
     createBrowserRouter,
 
 } from "react-router-dom";
+import NotFoundPage from '../pages/404Page';
+import VolunteerRequest from '../pages/VolunteerRequest';
+import FAQ from '../pages/FAQ';
+import CampaignPage from '../pages/CampaignPage';
 
 const router = createBrowserRouter([
     {
@@ -16,15 +22,15 @@ const router = createBrowserRouter([
     },
     {
         path: "/blood_request",
-        element: <h1>This is Blood</h1>
+        element: <BloodRequest />
     },
     {
         path: "/be_volunteer",
-        element: <h1>This is Volunteer</h1>
+        element: <VolunteerRequest />
     },
     {
-        path: "/about",
-        element: <h1>About</h1>
+        path: "/login",
+        element: <AuthPage />
     },
     {
         path: "/messenger",
@@ -32,11 +38,15 @@ const router = createBrowserRouter([
     },
     {
         path: "/campaign",
-        element: <h1>Campaign</h1>
+        element: <CampaignPage />
+    },
+    {
+        path: "/faq",
+        element: <FAQ />
     },
     {
         path: "*",
-        element: <div>Not Found</div>,
+        element: <NotFoundPage />
     },
 ]);
 
