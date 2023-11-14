@@ -1,6 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
+
 interface Props {
-    toggle: boolean,
-    setToggle: (value: boolean) => void
+    toggle: boolean
+    setToggle: Dispatch<SetStateAction<boolean>>;
 }
 export const ToggleButton = ({ toggle, setToggle }: Props) => {
     return (
