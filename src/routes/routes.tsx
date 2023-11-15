@@ -10,6 +10,9 @@ import NotFoundPage from '../pages/404Page';
 import VolunteerRequest from '../pages/VolunteerRequest';
 import FAQ from '../pages/FAQ';
 import CampaignPage from '../pages/CampaignPage';
+import SingleVolunteer from '../components/volunteer/SingleVolunteer';
+import AboutUs from '../pages/About';
+import Messanger from '../pages/Messanger';
 
 const router = createBrowserRouter([
     {
@@ -29,12 +32,16 @@ const router = createBrowserRouter([
         element: <VolunteerRequest />
     },
     {
+        path: "/volunteers/1",
+        element: <SingleVolunteer />
+    },
+    {
         path: "/login",
         element: <AuthPage />
     },
     {
         path: "/messenger",
-        element: <h1>Messagner</h1>
+        element: <Messanger />
     },
     {
         path: "/campaign",
@@ -43,6 +50,10 @@ const router = createBrowserRouter([
     {
         path: "/faq",
         element: <FAQ />
+    },
+    {
+        path: "/about_us",
+        element: <AboutUs />
     },
     {
         path: "*",

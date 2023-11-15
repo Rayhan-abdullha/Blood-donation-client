@@ -30,13 +30,16 @@ const Footer = () => {
                         <h3 className='mb-[30px] text-[25px] sm:text-[30px] font-[500]'>Usefull Link</h3>
                         <ul>
                             <li className='mb-2 text-slate-300'>
-                                <Link to={"/"}>About</Link>
+                                <Link to={"/about_us"}>About</Link>
                             </li>
                             <li className='mb-2 text-slate-300'>
-                                <Link to={"/"}>FAQ</Link>
+                                <Link to={"/faq"}>FAQ</Link>
                             </li>
                             <li className='text-slate-300'>
-                                <Link to={"/"}>Volunteers</Link>
+                                <Link to={"/about_us"}>Volunteers</Link>
+                            </li>
+                            <li className='text-slate-300'>
+                                <Link to={"/messenger"}>Chat Us</Link>
                             </li>
                         </ul>
                     </div>
