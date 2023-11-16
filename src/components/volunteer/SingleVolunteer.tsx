@@ -1,5 +1,3 @@
-
-import { useParams } from 'react-router-dom';
 import bg from '../../assets/banner/header-bg.jpg';
 import SecondaryLayout from '../../layout/SecondaryLayout';
 
@@ -24,8 +22,6 @@ const data = {
 };
 
 const SingleVolunteer = () => {
-    const { id } = useParams();
-
     return (
         <SecondaryLayout bgImg={bg} title="Single Volunteer Info">
             <div className="container mx-auto">
