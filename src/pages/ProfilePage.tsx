@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import MainLayout from './../layout/MainLayout';
+import useScrollTop from '../Hook/useScrollTop';
 
 const ProfilePage = () => {
+    useScrollTop()
     const navigate = useNavigate()
     return (
         <MainLayout>
@@ -41,7 +43,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="container mx:auto">
+                <div className="container mx-auto xl:w-3/4 px-4 sm:px-6 lg:px-8 mt-10">
                     <div className="w-full flex flex-col 2xl:w-1/3">
                         <div className="flex-1 bg-white rounded-lg shadow-xl p-8">
                             <h4 className="text-xl text-gray-900 font-bold">Personal Info</h4>

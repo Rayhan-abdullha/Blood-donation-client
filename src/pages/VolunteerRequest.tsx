@@ -1,8 +1,10 @@
 
+import useScrollTop from '../Hook/useScrollTop';
 import VolunteerForm from '../components/volunteer/VolunteerForm';
 import MainLayout from '../layout/MainLayout'
 
 const VolunteerRequest = () => {
+    useScrollTop()
     return (
         <MainLayout>
             <div className="volunteer-page container mx-auto xl:w-3/4 px-4 sm:px-6 lg:px-8 py-[30px] sm:py-[40px] md:py-[60px] lg:py-[80px] xl:py-[100px]">

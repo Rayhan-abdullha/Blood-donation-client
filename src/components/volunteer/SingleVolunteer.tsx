@@ -1,5 +1,6 @@
 import bg from '../../assets/banner/header-bg.jpg';
 import SecondaryLayout from '../../layout/SecondaryLayout';
+import useScrollTop from '../../Hook/useScrollTop';
 
 const data = {
     id: '65548ddb296d5032466cee6d',
@@ -22,6 +23,8 @@ const data = {
 };
 
 const SingleVolunteer = () => {
+    useScrollTop()
+
     return (
         <SecondaryLayout bgImg={bg} title="Single Volunteer Info">
             <div className="container mx-auto">

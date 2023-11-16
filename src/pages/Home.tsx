@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom"
 import IntroSlider from "../components/slider/IntroSlider"
 import VolunteerList from "../components/volunteer/VolunteerList"
 import MainLayout from "../layout/MainLayout"
+import useScrollTop from "../Hook/useScrollTop"
 const Home = () => {
+    useScrollTop()
     const navigate = useNavigate()
     return (
         <MainLayout>

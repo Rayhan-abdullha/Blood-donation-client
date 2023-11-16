@@ -1,7 +1,9 @@
 import SecondaryLayout from '../layout/SecondaryLayout'
 import bg from '../assets/banner/header-bg.jpg'
+import useScrollTop from '../Hook/useScrollTop'
 
 const Messanger = () => {
+    useScrollTop()
     return (
         <SecondaryLayout bgImg={bg} title='Message Admin'>
             <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
