@@ -21,9 +21,9 @@ const SecondaryLayout = ({ children, bgImg, title }: Props) => {
                             {title}
                         </h3>
                         <div className="page-breadcrumb flex justify-center gap-5 text-white">
-                            <Link className="hover:bg-red-500 p-1 transition-all" to="/about_us">Volunteers</Link> <span>/</span>
-                            <Link className="hover:bg-red-500 p-1 transition-all" to="/faq">Faq</Link><span>/</span>
-                            <Link className="hover:bg-red-500 p-1 transition-all" to="/campaign"> Campaign</Link>
+                            <Link className="hover:bg-red-500 p-2 transition-all rounded-md" to="/about_us">Volunteers</Link><span className="mt-2">/</span>
+                            <Link className="hover:bg-red-500 p-2 transition-all rounded-md" to="/faq">Faq</Link><span className="mt-2">/</span>
+                            <Link className="hover:bg-red-500 p-2 transition-all rounded-md" to="/campaign"> Campaign</Link>
                         </div>
                     </div>
                 </div>

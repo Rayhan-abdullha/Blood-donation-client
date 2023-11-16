@@ -7,18 +7,15 @@ import { Link, useLocation } from 'react-router-dom';
 
 interface NavigationItem {
     name: string;
-    href: string;
-    current: boolean;
+    href: string
 }
-
+const user = true
 const navigation: NavigationItem[] = [
-    { name: 'home', href: '/', current: false },
-    { name: 'blood-request', href: '/blood_request', current: false },
-    { name: 'be volunteer', href: '/be_volunteer', current: false },
-    { name: 'messanger', href: '/inbox', current: false },
-    { name: 'login', href: '/login', current: false },
+    { name: 'হোম', href: '/' },
+    { name: 'রক্তের আবেদন', href: '/blood_request' },
+    { name: 'ডোনার হতে', href: '/be_volunteer' },
+    { name: 'ম্যাসেঞ্জার', href: '/messenger' }
 ]
-
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
@@ -26,8 +23,6 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
     const [isSticky, setIsSticky] = useState(false);
     const location = useLocation()
-    location.pathname
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -80,13 +75,42 @@ export default function Navbar() {
                                                 to={item.href}
                                                 className={classNames(
                                                     item.href === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
-                                                    'rounded-md px-3 py-2 text-[16px] font-[600] font-fontPopins uppercase'
+                                                    'rounded-md px-3 py-2 text-[17px] font-[600] transition-all duration-500'
                                                 )}
-                                                aria-current={item.current ? 'page' : undefined}
+                                                aria-current={item.href === location.pathname ? 'page' : undefined}
                                             >
                                                 {item.name}
                                             </Link>
                                         ))}
+
+                                        {
+                                            user ? <>
+                                                <Link
+                                                    to={"/logout"}
+                                                    className={classNames(
+                                                        'text-[#333] hover:text-[#FE3C47]rounded-md px-3 py-2 text-[17px] font-[600] uppercase transition-all duration-500'
+                                                    )}
+                                                    aria-current={'/logout' === location.pathname ? 'page' : undefined}
+                                                >
+                                                    লগ আউট
+                                                </Link>
+                                                <Link to={'/profile'} className=''>
+                                                    <img className={`${location.pathname === '/profile' && 'bg-red-500  p-1'} inline-block h-10 w-10 rounded-full ring-2 ring-white shadow-xl`}
+                                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                        alt="notfound"
+                                                    />
+                                                </Link>
+                                            </> : <Link
+                                                to={"/login"}
+                                                className={classNames(
+                                                    '/login' === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
+                                                    'rounded-md px-3 py-2 text-[16px] font-[600] uppercase transition-all duration-500'
+                                                )}
+                                                aria-current={'/login' === location.pathname ? 'page' : undefined}
+                                            >
+                                                Login
+                                            </Link>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -101,13 +125,41 @@ export default function Navbar() {
                                     to={item.href}
                                     className={classNames(
                                         item.href === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-gray-900 hover:text-[#FE3C47]',
-                                        'block rounded-md px-3 py-2 text-base font-medium uppercase'
+                                        'block rounded-md px-3 py-2 text-base font-[600] uppercase transition-all duration-500'
                                     )}
-                                    aria-current={item.current ? 'page' : undefined}
+                                    aria-current={item.href === location.pathname ? 'page' : undefined}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
+                            {
+                                user ? <>
+                                    <Link
+                                        to={"/logout"}
+                                        className={classNames(
+                                            'text-[#333] hover:text-[#FE3C47] rounded-md px-3 py-2 text-[17px] font-[600] block transition-all duration-500'
+                                        )}
+                                        aria-current={'logout' === location.pathname ? 'page' : undefined}
+                                    >
+                                        লগ আউট
+                                    </Link>
+                                    <Link to={'/profile'} className='block ml-[10px]'>
+                                        <img className={`${location.pathname === '/profile' && 'bg-red-500  p-1'} inline-block h-10 w-10 rounded-full ring-2 ring-white shadow-xl`}
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt=""
+                                        />
+                                    </Link>
+                                </> : <Link
+                                    to={"/login"}
+                                    className={classNames(
+                                        'login' === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
+                                        'rounded-md px-3 py-2 text-[16px] font-[600] uppercase transition-all duration-500'
+                                    )}
+                                    aria-current={'login' === location.pathname ? 'page' : undefined}
+                                >
+                                    Login
+                                </Link>
+                            }
                         </div>
                     </Disclosure.Panel>
                 </>

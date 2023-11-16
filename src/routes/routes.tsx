@@ -8,11 +8,12 @@ import {
 } from "react-router-dom";
 import NotFoundPage from '../pages/404Page';
 import VolunteerRequest from '../pages/VolunteerRequest';
-import FAQ from '../pages/FAQ';
 import CampaignPage from '../pages/CampaignPage';
 import SingleVolunteer from '../components/volunteer/SingleVolunteer';
 import AboutUs from '../pages/About';
 import Messanger from '../pages/Messanger';
+import FaqPage from '../pages/FaqPage';
+import ProfilePage from '../pages/ProfilePage';
 
 const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
         element: <VolunteerRequest />
     },
     {
-        path: "/volunteers/1",
+        path: "/volunteers/:id",
         element: <SingleVolunteer />
     },
     {
@@ -49,11 +50,15 @@ const router = createBrowserRouter([
     },
     {
         path: "/faq",
-        element: <FAQ />
+        element: <FaqPage />
     },
     {
         path: "/about_us",
         element: <AboutUs />
+    },
+    {
+        path: "/profile",
+        element: <ProfilePage />
     },
     {
         path: "*",

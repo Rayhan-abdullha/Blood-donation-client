@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <MainLayout>
             <IntroSlider />
-            <VolunteerList subtitle='Our Volunteer List' heading="The Volunteers Who Give Their Blood For Free" />
+            <VolunteerList subtitle='আমাদের ডোনাররা' heading="প্রতিনিয়ত রক্ত দিয়ে সাহায্য করে থাকেন" />
             <section className="cta-section text-center bg-[#FE3C47] py-[70px] sm:py-[100px] px-5">
                 <h2 className="text-white font-[500] text-[30px] mb-4 capitalize">We are helping people from This years</h2>
                 <p className="text-white mb-4">

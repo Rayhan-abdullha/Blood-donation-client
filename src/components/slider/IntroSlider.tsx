@@ -36,9 +36,9 @@ const IntroSlider = () => {
                 ))}
             </div>
             <div className='welcome-title sm:text-center absolute top-[100px] left-[20px] sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 text-white 2xl:mt-[-100px]'>
-                <h3 className='text-[18px] mb-2 font-[500] uppercase'>Donate &#129656; Save Life</h3>
-                <h1 className='text-[30px] xl:text-[50px] mb-3 font-[600] uppercase'>Welcome To My &#129656;</h1>
-                <button onClick={() => navigate('/be_volunteer')} className="uppercase rounded-md bg-[#FE3C47] px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FE3C47] xl:w-[200px] xl:h-[50px]">Be Volunteer</button>
+                <h3 className='text-[18px] mb-2 font-[500] uppercase'>&#129656; রক্ত দিন জীবন বাঁচান</h3>
+                <h1 className='text-[30px] xl:text-[50px] mb-3 font-[600] uppercase'>স্বাগতম আমাদের ক্লাবে </h1>
+                <button onClick={() => navigate('/be_volunteer')} className="uppercase rounded-md bg-[#FE3C47] px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FE3C47] xl:w-[200px] xl:h-[50px] hover:scale-105 transition-all duration-500">ডোনার হতে ক্লিক</button>
             </div>
         </section>
     )

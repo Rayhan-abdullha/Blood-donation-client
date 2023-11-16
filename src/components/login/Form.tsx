@@ -22,8 +22,8 @@ const LoginForm: React.FC = () => {
 
     return (
         <>
-            <h2 className="mb-[50px] text-center text-[25px] font-[500] leading-9 tracking-tight font-fontMoonserrat">
-                {!toggle ? 'Login To Your Account' : 'Register For An Account'}
+            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-700 mb-[50px]">
+                {!toggle ? 'Sign in to Your Account' : 'Register For an Account'}
             </h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 const data = [
     {
         id: "k@3ala3kdladc33bpwo3",
@@ -37,7 +39,7 @@ interface Props {
 }
 
 const VolunteerList = ({ subtitle, heading }: Props) => {
-
+    const navigate = useNavigate()
     return (
         <div className="volunteers-area container mx-auto xl:w-3/4 px-4 sm:px-6 lg:px-8 py-[30px] sm:py-[40px] md:py-[60px] lg:py-[80px] xl:py-[100px]">
             <div className="volunteer-section-title mb-12 relative">
@@ -50,7 +52,7 @@ const VolunteerList = ({ subtitle, heading }: Props) => {
             <div className="all-volunteers grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
                     data.map(item => (
-                        <div className="single-volunteer border-solid border-[1px] shadow-lg shadow-black-500/3 p-5 cursor-pointer bg-slate-50" key={item.id}>
+                        <div onClick={() => navigate(`/volunteers/${item.id}`)} className="single-volunteer border-solid border-[1px] shadow-lg shadow-black-500/3 p-5 cursor-pointer bg-slate-50" key={item.id}>
                             <div className="volunteer-img relative h-[300px] overflow-hidden">
                                 <img className="rounded-lg h-[100%] w-[100%] object-cover" src={item.cover} alt="notfound" />
                                 <span className="absolute top-0 right-0 bg-red-500 text-teal-50 p-1 uppercase text-[14px] rounded-sm">{item.status}</span>
