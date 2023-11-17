@@ -28,7 +28,7 @@ const Messanger = () => {
                 <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <div>
-                            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+                            {/* <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
                                 First name
                             </label>
                             <div className="mt-2.5">
@@ -40,7 +40,7 @@ const Messanger = () => {
                                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                                     placeholder='enter your message'
                                 />
-                            </div>
+                            </div> */}
                         </div>
                         <div className="sm:col-span-2">
                             <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
