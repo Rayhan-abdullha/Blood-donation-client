@@ -18,15 +18,16 @@ const data = {
         upazila: 'Charfassion',
         currentAddress: 'Dhaka',
         streetAddress: 'Charfassion',
-        country: 'Bangladesh',
+
     },
+    country: 'bangladesh'
 };
 
 const SingleVolunteer = () => {
     useScrollTop()
 
     return (
-        <SecondaryLayout bgImg={bg} title="Single Volunteer Info">
+        <SecondaryLayout bgImg={bg} title={data.name}>
             <div className="container mx-auto">
                 <div className="mt-8 bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
                     <div className="max-w-full">
@@ -45,10 +46,10 @@ const SingleVolunteer = () => {
                             <div className="divide-y divide-gray-100">
                                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                     <dt className="text-sm font-medium leading-6 text-gray-900">Full name</dt>
-                                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+                                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{data.name}</dd>
                                 </div>
                                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt className="text-sm font-medium leading-6 text-gray-900">Application for</dt>
+                                    <dt className="text-sm font-medium leading-6 text-gray-900">Ocapation</dt>
                                     <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Backend Developer</dd>
                                 </div>
                                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">

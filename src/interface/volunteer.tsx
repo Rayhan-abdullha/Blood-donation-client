@@ -12,7 +12,6 @@ interface VolunteerInputType {
         dist: string;
         upazila: string;
         currentAddress: string;
-        streetAddress: string;
     };
     cover: string;
 }

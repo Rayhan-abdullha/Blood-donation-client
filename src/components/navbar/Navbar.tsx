@@ -75,7 +75,7 @@ export default function Navbar() {
                                                 to={item.href}
                                                 className={classNames(
                                                     item.href === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
-                                                    'rounded-md px-3 py-2 text-[17px] font-[600] transition-all duration-500'
+                                                    'rounded-[30px] px-3 py-2 text-[17px] font-[600] transition-all duration-500'
                                                 )}
                                                 aria-current={item.href === location.pathname ? 'page' : undefined}
                                             >
@@ -88,7 +88,7 @@ export default function Navbar() {
                                                 <Link
                                                     to={"/logout"}
                                                     className={classNames(
-                                                        'text-[#333] hover:text-[#FE3C47]rounded-md px-3 py-2 text-[17px] font-[600] uppercase transition-all duration-500'
+                                                        'text-[#333] hover:text-[#FE3C47] rounded-[30px] px-3 py-2 text-[17px] font-[600] uppercase transition-all duration-500'
                                                     )}
                                                     aria-current={'/logout' === location.pathname ? 'page' : undefined}
                                                 >
@@ -104,7 +104,7 @@ export default function Navbar() {
                                                 to={"/login"}
                                                 className={classNames(
                                                     '/login' === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
-                                                    'rounded-md px-3 py-2 text-[16px] font-[600] uppercase transition-all duration-500'
+                                                    'rounded-[30px] px-3 py-2 text-[16px] font-[600] uppercase transition-all duration-500'
                                                 )}
                                                 aria-current={'/login' === location.pathname ? 'page' : undefined}
                                             >
@@ -125,7 +125,7 @@ export default function Navbar() {
                                     to={item.href}
                                     className={classNames(
                                         item.href === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-gray-900 hover:text-[#FE3C47]',
-                                        'block rounded-md px-3 py-2 text-base font-[600] uppercase transition-all duration-500'
+                                        'block rounded-[30px] px-3 py-2 text-base font-[600] uppercase transition-all duration-500'
                                     )}
                                     aria-current={item.href === location.pathname ? 'page' : undefined}
                                 >
@@ -137,7 +137,7 @@ export default function Navbar() {
                                     <Link
                                         to={"/logout"}
                                         className={classNames(
-                                            'text-[#333] hover:text-[#FE3C47] rounded-md px-3 py-2 text-[17px] font-[600] block transition-all duration-500'
+                                            'text-[#333] hover:text-[#FE3C47] rounded-[30px] px-3 py-2 text-[17px] font-[600] block transition-all duration-500'
                                         )}
                                         aria-current={'logout' === location.pathname ? 'page' : undefined}
                                     >
@@ -153,7 +153,7 @@ export default function Navbar() {
                                     to={"/login"}
                                     className={classNames(
                                         'login' === location.pathname ? 'bg-[#FE3C47] text-white' : 'text-[#333] hover:text-[#FE3C47]',
-                                        'rounded-md px-3 py-2 text-[16px] font-[600] uppercase transition-all duration-500'
+                                        'rounded-[30px] px-3 py-2 text-[16px] font-[600] uppercase transition-all duration-500'
                                     )}
                                     aria-current={'login' === location.pathname ? 'page' : undefined}
                                 >

@@ -15,7 +15,7 @@ const Home = () => {
                 <p className="text-white mb-4">
                     You can give blood at any of our blood donation venues all over the world. We have total sixty <br />thousands donor centers and visit thousands of other venues on various occasions.
                 </p>
-                <button onClick={() => navigate('/be_volunteer')} className="rounded-md bg-[#fff] px-3.5 py-2.5 text-md font-semibold shadow-sm focus-visible:outline hover:bg-[#FE3C47] hover:text-[#fff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400 xl:w-[200px] xl:h-[50px] cursor-pointer border border-stone-50">BECOME VOLUNTEER</button>
+                <button onClick={() => navigate('/be_volunteer')} className="bg-[#fff] px-4 py-3 text-sm font-semibold shadow-sm focus-visible:outline hover:bg-[#FE3C47] hover:text-[#fff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400 cursor-pointer border border-stone-50 rounded-[30px] hover:scale-105 transition-all duration-500">BECOME VOLUNTEER</button>
             </section>
         </MainLayout>
     )

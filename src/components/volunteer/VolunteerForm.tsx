@@ -16,8 +16,7 @@ const initialData: VolunteerInputType = {
         division: "",
         dist: "",
         upazila: "",
-        currentAddress: "",
-        streetAddress: "",
+        currentAddress: ""
     },
 };
 
@@ -35,65 +34,73 @@ const VolunteerForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmitHandler)} className='sm:flex sm:flex-wrap sm:gap-x-[3%]'>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Occupation*</label>
+                <label className='mb-2 block text-[14px]'>আপনার সম্পর্কে*</label>
+                <Controller
+                    name="bio"
+                    control={control}
+                    render={({ field }) => <textarea {...field} className='placeholder:text-[13px] placeholder:pt-2 pl-5 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[50px]' placeholder="আপনার জীবন বৃত্তান্ত লিখুন" />}
+                />
+            </div>
+            <div className='sm:basis-[47%] grow mb-5'>
+                <label className='mb-2 block text-[1৫px]'>আপনার পেশা*</label>
                 <Controller
                     name="occupation"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার পেশা লিখুন" />
                             {errors.occupation && <small className='text-[#fe3c47] ml-1'>{errors.occupation.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'Occupation is required',
+                        required: 'পেশা বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Age*</label>
+                <label className='mb-2 block text-[15px]'>আপনার বয়স*</label>
                 <Controller
                     name="age"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder='আপনার বয়স লিখুন ' />
                             {errors.age && <small className='text-[#fe3c47] ml-1'>{errors.age.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'Age is required',
+                        required: 'বয়স বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Gender*</label>
+                <label className='mb-2 block text-[14px]'>রোগীর জেন্ডার / লিঙ্গ*</label>
                 <Controller
                     name="gender"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <select {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                            <select {...field} className='text-[12px] placeholder:text-[13px] py-3 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' >
+                                <option className="text-[15px]" value="পুরুষ">পুরুষ</option>
+                                <option className="text-[15px]" value="মহিলা">মহিলা</option>
+                                <option className="text-[15px]" value="অন্যান্য">অন্যান্য</option>
                             </select>
                             {errors.gender && <small className='text-[#fe3c47] ml-1'>{errors.gender.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'Gender is required',
+                        required: 'জেন্ডার বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Blood Group*</label>
+                <label className='mb-2 block text-[14px]'>ব্লাড গ্রুপ*</label>
                 <Controller
                     name="bloodGroup"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <select {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md'>
+                            <select {...field} className='text-[14px] placeholder:text-[13px] py-[10px] pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]'>
                                 <option value="A+">
                                     A+
                                 </option>
@@ -123,146 +130,137 @@ const VolunteerForm = () => {
                         </>
                     )}
                     rules={{
-                        required: 'Blood is required',
+                        required: 'ব্লাড গ্রুপ বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Study</label>
+                <label className='mb-2 block text-[14px]'>পড়ালেখা</label>
                 <Controller
                     name="study"
                     control={control}
-                    render={({ field }) => <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />}
+                    render={({ field }) => <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder='আপনি কোথায় পড়েন লিখুন' />}
                 />
 
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Phone*</label>
+                <label className='mb-2 block text-[14px]'>আপনার ফোন নাম্বার*</label>
                 <Controller
                     name="phone"
                     control={control} render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার ফোন নাম্বার লিখুন" />
                             {errors.phone && <small className='text-[#fe3c47] ml-1'>{errors.phone.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'Phone is required',
+                        required: 'ফোন নাম্বার বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Cover</label>
+                <label className='mb-2 block text-[14px]'>আপনার পিকচার</label>
                 <Controller
                     name="cover"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input type='file' {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input type='file' {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' />
                             {errors.occupation && <small className='text-[#fe3c47] ml-1'>{errors.occupation.message}</small>}
                         </>
                     )}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>National ID</label>
+                <label className='mb-2 block text-[14px]'>ভোটার আইডি</label>
                 <Controller
                     name="nationalId"
                     control={control}
-                    render={({ field }) => <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />}
+                    render={({ field }) => <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার ভোটার আইডি লিখুন" />}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Bio</label>
-                <Controller
-                    name="bio"
-                    control={control}
-                    render={({ field }) => <textarea {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />}
-                />
-            </div>
-            <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Division*</label>
+                <label className='mb-2 block text-[14px]'>বিভাগের নাম*</label>
                 <Controller
                     name="address.division"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার বিভাগের নাম লিখুন" />
                             {errors.address?.division && <small className='text-[#fe3c47] ml-1'>{errors.address.division.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'Division is required',
+                        required: 'বিভাগে বাধ্যতামূলক',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>District*</label>
+                <label className='mb-2 block text-[14px]'>জেলা নাম*</label>
                 <Controller
                     name="address.dist"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার উপজেলার নাম লিখুন" />
                             {errors.address?.dist && <small className='text-[#fe3c47] ml-1'>{errors.address.dist.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'District is required',
+                        required: 'জেলা বাধ্যতামূলক',
                     }}
                 />
             </div>
 
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Upazila*</label>
+                <label className='mb-2 block text-[14px]'>উপজেলার নাম*</label>
                 <Controller
                     name="address.upazila"
                     control={control} render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার উপজেলার নাম লিখুন" />
                             {errors.address?.upazila && <small className='text-[#fe3c47] ml-1'>{errors.address?.upazila.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'Upazila is required',
+                        required: 'উপজেলা বাধ্যতামূলক',
                     }}
                 />
             </div>
-
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Current Address*</label>
+                <label className='mb-2 block text-[14px]'>গ্রামের বাড়ির ঠিকানা*</label>
                 <Controller
                     name="address.currentAddress"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার গ্রামের বাড়ির টিকানা লিখুন" />
                             {errors.address?.currentAddress && <small className='text-[#fe3c47] ml-1'>{errors.address.currentAddress.message}</small>}
                         </>
                     )}
                     rules={{
-                        required: 'CurrentAddress is required',
+                        required: 'ঠিকানা বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5'>
-                <label className='mb-2 block text-[14px]'>Street Address*</label>
+                <label className='mb-2 block text-[14px]'>বর্তমান ঠিকানা*</label>
                 <Controller
-                    name="address.streetAddress"
+                    name="address.currentAddress"
                     control={control}
                     render={({ field }) => (
-                        <div>
-                            <input {...field} className='p-2 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-md' />
-                            {errors.address?.streetAddress && <small className='text-[#fe3c47] ml-1'>{errors.address.streetAddress.message}</small>}
-                        </div>
+                        <>
+                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনি কথায় থাকেন লিখুন" />
+                            {errors.address?.currentAddress && <small className='text-[#fe3c47] ml-1'>{errors.address.currentAddress.message}</small>}
+                        </>
                     )}
                     rules={{
-                        required: 'StreetAddress is required',
+                        required: 'ঠিকানা বাধ্যতামূলক !',
                     }}
                 />
             </div>
             <div className='sm:basis-[47%] grow mb-5 '>
-                <button className='bg-[#fe3c47]  w-full py-2 text-white text-[18px] hover:bg-red-500 rounded-md' type="submit">Submit</button>
+                <button className='bg-[#fe3c47]  w-full py-2 text-white text-[18px] hover:bg-red-500 rounded-[30px]' type="submit">Submit</button>
             </div>
         </form>
     );
