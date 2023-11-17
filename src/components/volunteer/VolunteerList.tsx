@@ -53,7 +53,7 @@ const VolunteerList = ({ subtitle, heading }: Props) => {
                 {
                     data.map(item => (
                         <div onClick={() => navigate(`/volunteers/${item.id}`)} className="single-volunteer border-solid border-[1px] shadow-lg shadow-black-500/3 p-5 cursor-pointer bg-slate-50" key={item.id}>
-                            <div className="volunteer-img relative h-[300px] overflow-hidden">
+                            <div className="volunteer-img relative h-[300px] overflow-hidden img-hover-zoom--colorize">
                                 <img className="rounded-lg h-[100%] w-[100%] object-cover" src={item.cover} alt="notfound" />
                                 <span className="absolute top-0 right-0 bg-red-500 text-teal-50 p-1 uppercase text-[14px] rounded-sm">{item.status}</span>
                             </div>
