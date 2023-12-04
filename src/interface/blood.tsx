@@ -5,7 +5,7 @@ interface BloodInputType {
     phone: string;
     patientInfo: {
         name: string;
-        age: string;
+        age: string | number;
         bloodGroup: string;
         phone: string;
         gender: string;

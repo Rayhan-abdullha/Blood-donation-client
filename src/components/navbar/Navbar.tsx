@@ -4,18 +4,14 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import './navbar.css'
 import { Link, useLocation } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../redux/Hook';
+import { removeUser } from '../../redux/features/users/userSlice';
 
 interface NavigationItem {
     name: string;
     href: string
 }
-const user = true
-const navigation: NavigationItem[] = [
-    { name: 'হোম', href: '/' },
-    { name: 'রক্তের আবেদন', href: '/blood_request' },
-    { name: 'ডোনার হতে', href: '/be_volunteer' },
-    { name: 'ম্যাসেঞ্জার', href: '/messenger' }
-]
+
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
@@ -23,6 +19,25 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
     const [isSticky, setIsSticky] = useState(false);
     const location = useLocation()
+
+
+    const user = useAppSelector(store => store.userReducer.user)
+    const dispatch = useAppDispatch()
+
+    // menu items
+    const navigation: NavigationItem[] = Object.keys(user).length ? [
+        { name: 'হোম', href: '/' },
+        { name: 'রক্তের আবেদন', href: '/blood_request' },
+        { name: 'ডোনার হতে', href: '/be_volunteer' },
+        { name: 'ম্যাসেঞ্জার', href: '/messenger' }
+    ] : [
+        { name: 'হোম', href: '/' }
+    ]
+    // logout handler
+    const handleLogOut = () => {
+        localStorage.removeItem('blood-auth-token')
+        dispatch(removeUser())
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -84,9 +99,11 @@ export default function Navbar() {
                                         ))}
 
                                         {
-                                            user ? <>
+                                            Object.keys(user).length ? <>
                                                 <Link
                                                     to={"/logout"}
+                                                    onClick={handleLogOut}
+
                                                     className={classNames(
                                                         'text-[#333] hover:text-[#FE3C47] rounded-[30px] px-3 py-2 text-[17px] font-[600] uppercase transition-all duration-500'
                                                     )}
@@ -108,7 +125,7 @@ export default function Navbar() {
                                                 )}
                                                 aria-current={'/login' === location.pathname ? 'page' : undefined}
                                             >
-                                                Login
+                                                লগ ইন
                                             </Link>
                                         }
                                     </div>
@@ -133,9 +150,10 @@ export default function Navbar() {
                                 </Link>
                             ))}
                             {
-                                user ? <>
+                                Object.keys(user).length ? <>
                                     <Link
                                         to={"/logout"}
+                                        onClick={handleLogOut}
                                         className={classNames(
                                             'text-[#333] hover:text-[#FE3C47] rounded-[30px] px-3 py-2 text-[17px] font-[600] block transition-all duration-500'
                                         )}

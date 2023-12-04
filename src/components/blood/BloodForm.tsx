@@ -1,5 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import { BloodInputType } from "../../interface/blood";
+import { ApiInstance } from "../../config/axiosInstance";
 const initialData: BloodInputType = {
   title: "",
   place: "",
@@ -32,8 +33,13 @@ const BloodForm = () => {
     defaultValues: initialData,
   });
 
-  const onSubmitHandler = (data: BloodInputType) => {
-    console.log(data);
+  const onSubmitHandler = async (data: BloodInputType) => {
+    try {
+      const response = await ApiInstance.post('bloods', data);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 
 import { useForm, Controller } from 'react-hook-form';
 import { VolunteerInputType } from '../../interface/volunteer';
+import { ApiInstance } from '../../config/axiosInstance';
 
 const initialData: VolunteerInputType = {
     occupation: "",
@@ -16,6 +17,7 @@ const initialData: VolunteerInputType = {
         division: "",
         dist: "",
         upazila: "",
+        streetAddress: "",
         currentAddress: ""
     },
 };
@@ -26,8 +28,13 @@ const VolunteerForm = () => {
 
     });
 
-    const onSubmitHandler = (data: VolunteerInputType) => {
-        console.log(data);
+    const onSubmitHandler = async (data: VolunteerInputType) => {
+        try {
+            const response = await ApiInstance.post('volunteers', data);
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
 
     };
 
@@ -64,7 +71,7 @@ const VolunteerForm = () => {
                     control={control}
                     render={({ field }) => (
                         <>
-                            <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder='আপনার বয়স লিখুন ' />
+                            <input {...field} type="number" className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder='আপনার বয়স লিখুন ' />
                             {errors.age && <small className='text-[#fe3c47] ml-1'>{errors.age.message}</small>}
                         </>
                     )}
@@ -230,12 +237,12 @@ const VolunteerForm = () => {
             <div className='sm:basis-[47%] grow mb-5'>
                 <label className='mb-2 block text-[14px]'>গ্রামের বাড়ির ঠিকানা*</label>
                 <Controller
-                    name="address.currentAddress"
+                    name="address.streetAddress"
                     control={control}
                     render={({ field }) => (
                         <>
                             <input {...field} className='placeholder:text-[13px] py-2 pl-3 focus:outline-none ring-1 ring-inset ring-gray-300 w-[100%] rounded-[30px]' placeholder="আপনার গ্রামের বাড়ির টিকানা লিখুন" />
-                            {errors.address?.currentAddress && <small className='text-[#fe3c47] ml-1'>{errors.address.currentAddress.message}</small>}
+                            {errors.address?.streetAddress && <small className='text-[#fe3c47] ml-1'>{errors.address.streetAddress.message}</small>}
                         </>
                     )}
                     rules={{

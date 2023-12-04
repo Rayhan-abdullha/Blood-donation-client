@@ -1,6 +1,6 @@
 interface VolunteerInputType {
     occupation: string;
-    age: string;
+    age: number | "";
     gender: string;
     bloodGroup: string;
     study: string;
@@ -11,6 +11,7 @@ interface VolunteerInputType {
         division: string;
         dist: string;
         upazila: string;
+        streetAddress: string;
         currentAddress: string;
     };
     cover: string;
